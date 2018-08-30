@@ -1,5 +1,6 @@
 package lht.wangtong.gowin120.patient.ui.home.store;
 
+import lht.wangtong.gowin120.patient.R;
 import lht.wangtong.gowin120.patient.base.BaseActivity;
 
 /**
@@ -12,7 +13,7 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.activity_order_detail;
     }
 
     @Override
