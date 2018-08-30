@@ -13,6 +13,8 @@ public interface OrderDetailContact extends BaseContract {
 
     interface Presenter extends BaseContract.BasePresenter<View> {
 
+        void initData();
+
     }
 
 }
