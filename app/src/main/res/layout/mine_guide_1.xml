@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="30dp">
+
+
+                <ImageView
+                    android:id="@+id/mine_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:background="@drawable/mine_top_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/setting_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:background="@drawable/mine_settint_btn"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/mine_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mine_data_btn_img"
+                    android:clickable="true"
+                    android:visibility="invisible"
+                    android:focusable="true"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/mine_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/mine_top"
+                    app:layout_constraintLeft_toLeftOf="@+id/mine_top"
+                    app:layout_constraintRight_toRightOf="@+id/mine_top"
+                    app:layout_constraintTop_toTopOf="@+id/mine_top" />
+
+                <RelativeLayout
+                    android:id="@+id/mine_head_layout"
+                    android:layout_width="81dp"
+                    android:layout_height="81dp"
+                    android:visibility="invisible"
+                    android:background="@drawable/mine_header_view_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/mine_head"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/mine_head_default_img"
+                        app:civ_border_color="#23ffffff"
+                        app:civ_border_width="5dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/mine_head_layout">
+
+                    <LinearLayout
+                        android:id="@+id/function_list_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/mine_layout_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="20dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+
+                            card_view:cardBackgroundColor="#ffffff"
+                            card_view:cardCornerRadius="10dp"
+                            card_view:cardElevation="2dp"
+                            card_view:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:layout_marginStart="24dp"
+                                android:orientation="vertical">
+
+                                <lht.wangtong.gowin120.patient.view.OwnTabsItem
+                                    android:id="@+id/mine_report"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    app:ownTabsLeftImg="@drawable/mine_report_img"
+                                    app:ownTabsLeftText="我的报告" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:background="#D9DADD" />
+
+                                <lht.wangtong.gowin120.patient.view.OwnTabsItem
+                                    android:id="@+id/mine_appointment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:ownTabsLeftImg="@drawable/mine_appointment_img"
+                                    app:ownTabsLeftText="我的预约" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:background="#D9DADD" />
+
+                                <lht.wangtong.gowin120.patient.view.OwnTabsItem
+                                    android:id="@+id/mine_service"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:ownTabsLeftImg="@drawable/mine_service_img"
+                                    app:ownTabsLeftText="我的服务" />
+
+                            </LinearLayout>
+
+                        </android.support.v7.widget.CardView>
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="12dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/mine_layout_1"
+                            card_view:cardBackgroundColor="#FFFFFF"
+                            card_view:cardCornerRadius="10dp"
+                            card_view:cardElevation="2dp"
+                            card_view:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:layout_marginStart="24dp"
+                                android:orientation="vertical">
+
+                                <lht.wangtong.gowin120.patient.view.OwnTabsItem
+                                    android:id="@+id/mine_collection"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:ownTabsLeftImg="@drawable/mine_collection_img"
+                                    app:ownTabsLeftText="我的收藏" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:background="#D9DADD" />
+
+
+                                <lht.wangtong.gowin120.patient.view.OwnTabsItem
+                                    android:id="@+id/mine_family_manager"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:ownTabsLeftImg="@drawable/mine_family_manager_img"
+                                    app:ownTabsLeftText="成员管理" />
+
+                            </LinearLayout>
+
+                        </android.support.v7.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/function_list_layout"
+                        android:layout_marginTop="50dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/mine_guide_word_img"
+                            android:background="#00000000"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/mine_guide_arrow_img"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/kown_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/have_know_img_btn"/>
+
+
+</LinearLayout>

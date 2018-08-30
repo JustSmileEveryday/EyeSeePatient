@@ -1,0 +1,163 @@
+<resources>
+    <string name="app_name">小艾眼管家</string>
+    //1.0
+    <string name="number_please_txt">请输入手机号</string>
+    <string name="pass_please_txt">请输入您的密码</string>
+    <string name="please_write_password">请输入登陆密码</string>
+    <string name="agreement">用户协议</string>
+    <string name="login">登录</string>
+    <string name="register_title">注册</string>
+    <string name="repass_title">重置密码</string>
+    <string name="login_title">用户注册</string>
+    <string name="login_code_title">重置密码</string>
+    <string name="froget_password">忘记密码?</string>
+    <string name="wipe_cache">确定清空缓存吗？</string>
+    <string name="exit_login">确定退出当前账号？</string>
+    <string name="agreement_txt">我已经阅读并同意《用户协议与隐私条款》</string>
+    <string name="please_write_verify_code">请输入手机验证码</string>
+    <string name="send_verify_code">发送验证码</string>
+    <string name="register">注册</string>
+
+    //2.0
+    <string name="title_home">首页</string>
+    <string name="title_consulting">咨询</string>
+    <string name="title_service">服务</string>
+    <string name="title_science">科普</string>
+    <string name="title_mine">我的</string>
+    <string name="no_network_connection">网络连接失败</string>
+    <string name="detection_sign_text">还没有进行过视力检测，赶紧开始吧</string>
+    <string name="more">更多</string>
+    <string name="vision_detection">视力检测</string>
+    <string name="color_blindness_detection">色盲检测</string>
+    <string name="astigmatism_detection">散光检测</string>
+    <string name="mine_info">个人信息</string>
+    <string name="cancel">取消</string>
+    <string name="sure">确定</string>
+    <string name="takealbum">从手机相册选择</string>
+    <string name="takephoto">拍照</string>
+    <string name="save_photo">保存图片</string>
+    <string name="report_sign_text">报告生成后，我们将在第一时间通知您，\n感谢您对小艾眼管家的支持！</string>
+    <string name="appointment_success_text">温馨提示：服务请求成功后，小艾的工作人员将尽快与您联系，请您耐心等候。</string>
+    <string name="appointment_num_text">如有疑问，您也可拨打400-090-9609联系小艾，感谢您的支持与信任！</string>
+    <string name="add">添加</string>
+    <string name="delete_family">删除成员</string>
+    <string name="save">保存</string>
+    <string name="sign_text">本项测试是用来测定人眼的视力状况和清晰度的，视力问题可能是与生俱来或者后天造成的，一个以为常见的原因之一就是读书时眼睛离书本距离太近或者是面对电脑工作时间太长（结果仅参考）！</string>
+    <string name="start_test">开始测试</string>
+    <string name="sign_left_text">闭上左眼，保持手机在视线正前方200cm</string>
+    <string name="sign_right_text">闭上右眼，保持手机在视线正前方200cm</string>
+    <string name="eye_prevention_text">眼保健操是一种眼睛的保健体操，主要是通过按摩眼部穴位，达到提高人们的眼睛视力，调整眼及头部的血液循环，调节肌肉，改善眼的疲劳的目的。</string>
+    <string name="eye_prevention_text_1">亲，每日打卡时间为9:00-11:00、15:00-17:00，千万别忘记了哟~</string>
+    <string name="one_call_title">提示\n您现在确定要小艾工作人员为您服务吗？</string>
+    <string name="one_call_content">如果点击确定，小艾客服将跟您进行电话沟通，感谢您选择小艾服务！</string>
+    <string name="one_call_sign">提示</string>
+    <string name="one_call_content_success">您的呼叫已收到，请保持电话畅通即可！</string>
+    <string name="detection_sign_text_1">检查步骤： \n1、把方格表放在视平线30cm距离，光线清晰；\n2、如有老花或近视，需佩戴原有眼镜进行测试；\n3、用手覆盖左眼，右眼凝视表格中心白点；\n4、重复步骤1至3检查左眼</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="service_success_text">温馨提示：服务下单成功后，小艾的工作人员将尽快与您联系，请您耐心等候。</string>
+    <string name="progress_dialog">正在加载</string>
+    <string name="please_wait">请稍等</string>
+    <string name="save_exist">文件已存在</string>
+    <string name="save_succ">保存成功</string>
+    <string name="downloading">正在下载，请稍候</string>
+    <string name="download_fail">下载失败</string>
+    <string name="file_not_found">未找到文件，请稍后重试</string>
+    <string name="chat_audio_too_long">录音过长，请重试</string>
+    <string name="chat_content_bad">内容含有敏感词</string>
+    <string name="chat_image_preview_ori">原图发送</string>
+    <string name="chat_image_preview_load_err">图片加载失败</string>
+    <string name="chat_sign_text">注意：医生回复仅作参考，不能作为诊断和治疗依据。</string>
+    <string name="apply_report_sign_text">你好，如果你未获取到电子报告，你可以选择填写下面的信息，系统会及时给你审核匹配相应的报告，请你耐心等待,</string>
+    <string name="apply_report_sucess_text">您的申请已提交成功，系统会及时给你\n审核匹配相应的报告，请你耐心等待!</string>
+
+</resources>

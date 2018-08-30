@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="lht.wangtong.gowin120.patient"
+    android:versionCode="23"
+    android:versionName="2.2.3">
+
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- 高德地图 start -->
+    <!-- 地图包、搜索包需要的基础权限 -->
+
+
+    <!-- 定位包、导航包需要的额外权限（注：基础权限也需要） -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+    <!-- 定位的权限 -->
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于访问网络，网络定位需要上网 -->
+    <!-- 用于读取手机当前的状态 -->
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入缓存定位数据 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 高德地图 end -->
+
+
+    <!-- 腾讯 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Required -->
+    <permission
+        android:name="lht.wangtong.gowin120.patient.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!-- mi push -->
+    <permission
+        android:name="lht.wangtong.gowin120.patient.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="lht.wangtong.gowin120.patient.permission.MIPUSH_RECEIVE" />
+
+    <application
+        android:name=".base.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:testOnly="false"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+
+
+        <!-- 高德地图key -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="378a01775690e3e7406af82109e48d58" />
+
+        <!-- 高德地图定位服务 -->
+        <!-- <service android:name="com.amap.api.location.APSService" /> -->
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/StartTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 主页 -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:launchMode="singleTask" />
+
+        <!-- 引导页 -->
+        <activity android:name=".ui.guide.GuideActivity" />
+
+        <!-- 个人信息界面 -->
+        <activity android:name=".ui.mine.info.MineInfoActivity" />
+
+        <!-- 选择头像 -->
+        <activity android:name=".ui.mine.info.UserHeadActivity" />
+
+        <!-- 我的报告 -->
+        <activity android:name=".ui.mine.report.ReportCenterActivity" />
+
+        <!-- 报告详情 -->
+        <activity android:name=".ui.mine.report.ReportDetailActivity" />
+
+        <!-- 我的预约 -->
+        <activity android:name=".ui.mine.appointment.AppointmentActivity" />
+
+        <!-- 预约详情 -->
+        <activity android:name=".ui.mine.appointment.AppointmentDetailActivity" />
+
+        <!-- 我的收藏 -->
+        <activity android:name=".ui.mine.collection.MyCollectionActivity" />
+
+        <!-- 我的成员 -->
+        <activity android:name=".ui.mine.family.MyFamilyActivity" />
+
+        <!-- 成员信息 -->
+        <activity android:name=".ui.mine.family.FamilyInfoActivity" />
+
+        <!-- 预约服务 -->
+        <activity android:name=".ui.home.appointment.AppointmentServiceActivity" />
+
+        <!-- 测试 -->
+        <activity android:name=".ui.home.detection.EyeDetectionActivity" />
+
+        <!-- 测试结果 -->
+        <activity android:name=".ui.home.detection.DetectionCompleteActivity" />
+
+        <!-- 眼保健操 -->
+        <activity android:name=".ui.home.prevention.EyePreventionActivity" />
+
+        <!-- 护眼计划 -->
+        <activity android:name=".ui.home.plan.ProtectEyePlanActivity" />
+
+        <!-- 添加计划 -->
+        <activity android:name=".ui.home.plan.AddPlanActivity" />
+
+        <!-- 眼健康数据 -->
+        <activity android:name=".ui.home.data.EyeHealthDataActivity" />
+
+        <!-- 设置界面 -->
+        <activity android:name=".ui.mine.setting.SettingActivity" />
+
+        <!-- 反馈界面 -->
+        <activity android:name=".ui.mine.setting.feedback.FeedbackActivity" />
+
+        <!-- 关于小艾 -->
+        <activity android:name=".ui.mine.setting.about.AboutActivity" />
+
+        <!-- 协议界面 -->
+        <activity android:name=".ui.mine.setting.agreement.AgreementActivity" />
+
+        <!-- 重置密码 -->
+        <activity android:name=".ui.mine.setting.reset.ResetPasswordActivity" />
+
+        <!-- 登录 -->
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:launchMode="singleTask" />
+
+        <!-- 注册 -->
+        <activity android:name=".ui.login.RegisterActivity" />
+
+        <!-- 我的动态 -->
+        <activity android:name=".ui.home.dynamic.MyDynamicActivity" />
+
+        <!-- 科普文章详情 -->
+        <activity android:name=".ui.science.category.CategoryDetailActivity" />
+
+        <!-- 服务详情 -->
+        <activity android:name=".ui.service.category.ServiceDetailActivity" />
+
+        <!-- 订单 -->
+        <activity android:name=".ui.service.order.OrderActivity" />
+
+        <!-- 我的服务 -->
+        <activity android:name=".ui.mine.service.MyServiceActivity" />
+
+        <!-- 我的服务详情 -->
+        <activity android:name=".ui.mine.service.MyServiceDetailActivity" />
+
+        <!-- 评论界面 -->
+        <activity android:name=".ui.consult.doctor.CommentActivity" />
+
+        <!-- 医生主页 -->
+        <activity android:name=".ui.consult.doctor.DoctorActivity" />
+
+        <!-- 自动聊天界面 -->
+        <activity android:name=".ui.consult.chat.AutoChatActivity" />
+
+        <!-- 猜你想问详情 -->
+        <activity android:name=".ui.consult.supposeask.SupposeDetailActivity" />
+
+        <!-- 科普评论列表 -->
+        <activity android:name=".ui.science.category.CommentActivity" />
+
+        <!-- 搜索 -->
+        <activity android:name=".ui.search.SearchActivity" />
+
+        <!-- 小艾课堂 -->
+        <activity android:name=".ui.home.classroom.ClassroomListActivity" />
+
+
+        <!-- 小艾课堂详情 -->
+        <activity
+            android:name=".ui.home.classroom.CourseDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+
+        <!-- 我的余额 -->
+        <activity android:name=".ui.mine.balance.MyBalanceActivity" />
+
+        <!-- 余额明细 -->
+        <activity android:name=".ui.mine.balance.BalanceActivity" />
+
+        <!-- 余额详情 -->
+        <activity android:name=".ui.mine.balance.BalanceDetailActivity" />
+
+        <!-- 充值 -->
+        <activity android:name=".ui.mine.recharge.RechargeActivity" />
+
+        <!-- 充值成功 -->
+        <activity android:name=".ui.mine.recharge.RechargeSuccActivity" />
+
+        <!-- 我的积分 -->
+        <activity android:name=".ui.mine.integration.MyIntegrationActivity" />
+
+        <!-- 扫描二维码 -->
+        <activity android:name=".ui.mine.scanercode.ScanerCodeActivity" />
+
+        <!-- 扫描结果 -->
+        <activity android:name=".ui.mine.scanercode.ScanerResultActivity" />
+
+        <!-- 我的优惠券 -->
+        <activity android:name=".ui.mine.coupons.MyCouponsActivity" />
+
+        <!-- 领取优惠券 -->
+        <activity android:name=".ui.mine.coupons.ReceiveCouponActivity" />
+
+        <!-- 分享报告 -->
+        <activity android:name=".ui.mine.report.ReportShareActivity" />
+
+        <!-- 试镜间 -->
+        <activity android:name=".ui.home.tryglasses.TryGlassesActivity" />
+
+        <!-- 试镜间保存 -->
+        <activity android:name=".ui.home.tryglasses.TrySuccessActivity" />
+
+        <!-- 测眼龄 -->
+        <activity android:name=".ui.home.surveyeye.SurveyEyesActivity" />
+
+        <!-- 测眼龄结果 -->
+        <activity android:name=".ui.home.surveyeye.SurveyResultActivity" />
+
+        <!-- 申请报告 -->
+        <activity android:name=".ui.mine.report.ApplyReportActivity" />
+
+        <!-- 我的地址 -->
+        <activity android:name=".ui.mine.address.MyAddressActivity" />
+
+        <!-- 添加地址 -->
+        <activity android:name=".ui.mine.address.AddAddressActivity" />
+
+        <!-- 小艾商城 -->
+        <activity android:name=".ui.home.store.StoreActivity" />
+
+        <!-- 验证码登录 -->
+        <activity android:name=".ui.login.AuthLoginActivity" />
+
+        <!-- 我的订单 -->
+        <activity android:name=".ui.mine.order.OrderActivity" />
+
+        <!-- 图片裁剪 -->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <receiver
+            android:name=".updateapp.UpdateAppReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 微信API -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 微信支付API -->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 支付宝所需 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
+        <!-- 极光推送 -->
+        <receiver
+            android:name=".receiver.MyReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION" />
+                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="lht.wangtong.gowin120.patient" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 腾讯IM -->
+
+        <provider
+            android:name=".util.ImagePickerProvider"
+            android:authorities="lht.wangtong.gowin120.patient.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <!-- 聊天界面 -->
+
+        <activity
+            android:name=".tencent.ui.ChatActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 图片展示界面 -->
+        <activity android:name=".tencent.ui.ImageViewActivity" />
+
+        <!-- 图片展示预览界面 -->
+        <activity android:name=".tencent.ui.ImagePreviewActivity" />
+
+        <!-- Umeng渠道APPkey -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58328c111061d25e1500127d" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="umeng" />
+
+        <activity
+            android:name="com.umeng.socialize.media.WBShareCallBackActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:theme="@style/WBShareTheme"
+            tools:replace="android:theme"></activity>
+        <activity
+            android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1105712131" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- mipush -->
+        <service
+            android:name="com.xiaomi.push.service.XMJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":MiPushService" />
+        <service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:enabled="true"
+            android:process=":MiPushService" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+            android:enabled="true" />
+
+        <receiver
+            android:name=".tencent.utils.MiPushMessageReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.PingReceiver"
+            android:exported="false"
+            android:process=":MiPushService">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER" />
+            </intent-filter>
+        </receiver>
+        <!-- mipush -->
+
+        <!-- hwpush -->
+
+
+        <!-- 第三方相关 :接收Push消息（注册、Push消息、Push连接状态、标签，LBS上报结果）广播 -->
+        <receiver android:name=".tencent.utils.HwPushMessageReceiver">
+            <intent-filter>
+
+                <!-- 必须,用于接收token -->
+                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+                <!-- 必须，用于接收消息 -->
+                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+                <!-- 可选，用于点击通知栏或通知栏上的按钮后触发onEvent回调 -->
+                <action android:name="com.huawei.android.push.intent.CLICK" />
+                <!-- 可选，查看push通道是否连接，不查看则不需要 -->
+                <action android:name="com.huawei.intent.action.PUSH_STATE" />
+                <!-- 可选，标签、地理位置上报回应，不上报则不需要 -->
+                <action android:name="com.huawei.android.push.plugin.RESPONSE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="CS_cloud_ablitity"
+                android:value="successRateAnalytics" />
+        </receiver>
+
+        <!--
+             备注：Push相关的android组件需要添加到业务的AndroidManifest.xml,
+             Push相关android组件运行在另外一个进程是为了防止Push服务异常而影响主业务
+        -->
+
+
+        <!-- PushSDK:PushSDK接收外部请求事件入口 -->
+        <receiver
+            android:name="com.huawei.android.pushagent.PushEventReceiver"
+            android:process=":HwPushService">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REFRESH_PUSH_CHANNEL" />
+                <action android:name="com.huawei.intent.action.PUSH" />
+                <action android:name="com.huawei.intent.action.PUSH_ON" />
+                <action android:name="com.huawei.android.push.PLUGIN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.huawei.android.pushagent.PushBootReceiver"
+            android:process=":HwPushService">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTER" />
+                <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE" /> -->
+            </intent-filter>
+
+            <meta-data
+                android:name="CS_cloud_version"
+                android:value="\u0032\u0037\u0030\u0035" />
+        </receiver>
+
+        <!-- PushSDK:Push服务 -->
+        <service
+            android:name="com.huawei.android.pushagent.PushService"
+            android:process=":HwPushService" />
+        <!-- hwpush -->
+
+        <!--  消息收发 service -->
+        <service
+            android:name="com.tencent.qalsdk.service.QalService"
+            android:exported="false"
+            android:process=":QALSERVICE" />
+        <!--  消息收发辅助 service -->
+        <service
+            android:name="com.tencent.qalsdk.service.QalAssistService"
+            android:exported="false"
+            android:process=":QALSERVICE" />
+        <!--  离线消息广播接收器 -->
+        <receiver
+            android:name="com.tencent.qalsdk.QALBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tencent.qalsdk.broadcast.qal" />
+            </intent-filter>
+        </receiver>
+        <!--  系统消息广播接收器 -->
+        <receiver
+            android:name="com.tencent.qalsdk.core.NetConnInfoCenter"
+            android:process=":QALSERVICE">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

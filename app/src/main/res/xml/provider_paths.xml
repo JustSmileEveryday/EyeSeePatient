@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="external_files"
+        path="Android/data/lht.wangtong.gowin120.patient/cache" />
+
+    <external-path
+        name="camera_photos"
+        path="Android/data/lht.wangtong.gowin120.patient/cache" />
+
+    <root-path
+        name="root_path"
+        path="." />
+</paths>

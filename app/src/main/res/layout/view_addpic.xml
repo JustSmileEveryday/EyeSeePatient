@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/takephoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCFCFC"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/takephoto"
+        android:textColor="#333333"
+        android:textSize="18sp" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#4D4D4D" />
+
+    <TextView
+        android:id="@+id/takealbum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCFCFC"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/takealbum"
+        android:textColor="#333333"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#4D4D4D" />
+
+    <TextView
+        android:id="@+id/save_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCFCFC"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/save_photo"
+        android:textColor="#333333"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/pic_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#FCFCFC"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/cancel"
+        android:textColor="@color/bulue"
+        android:textSize="18sp" />
+
+</LinearLayout>
