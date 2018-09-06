@@ -14,7 +14,7 @@ public class AnimationUtil {
     public static ProgressDialog getProgress() {
         if (ActivityCollector.activityStack.size() == 0) {
             singleProgress = null;
-            return singleProgress;
+            return null;
         }
         if (singleProgress == null) {
             if (ActivityCollector.currentActivity() instanceof SplashActivity) {

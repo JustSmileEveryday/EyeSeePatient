@@ -265,7 +265,8 @@
                         android:id="@+id/positive_result_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -363,7 +364,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
-                                android:text="护眼建议"
+                                android:text="小艾温馨提示"
                                 android:textColor="#3C4045"
                                 android:textSize="17sp" />
 
@@ -381,6 +382,17 @@
                             android:textSize="16sp" />
 
                     </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/positive_result_array_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+
 
                 </LinearLayout>
 
@@ -449,7 +461,7 @@
                     android:id="@+id/report_important_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#ffffff"
                     android:orientation="vertical"
                     android:visibility="gone">
@@ -491,7 +503,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10dp"
                             android:layout_marginStart="10dp"
-                            android:src="@drawable/report_detail_open_btn_img" />
+                            android:src="@drawable/report_detail_close_btn_img" />
 
                     </LinearLayout>
 
@@ -503,7 +515,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:nestedScrollingEnabled="false"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     tools:targetApi="lollipop" />
 
                 <android.support.constraint.ConstraintLayout

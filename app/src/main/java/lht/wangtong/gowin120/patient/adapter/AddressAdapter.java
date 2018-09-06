@@ -22,11 +22,16 @@ public class AddressAdapter extends BaseQuickAdapter<AddressInfo, BaseViewHolder
 
     @Override
     protected void convert(BaseViewHolder helper, AddressInfo item) {
-        helper.setText(R.id.name,item.getReceName());
-        helper.setText(R.id.phone,item.getMobilePhone());
-        helper.setText(R.id.address,item.getAddrArea()+item.getStreet());
+        helper.setText(R.id.name, item.getReceName());
+        helper.setText(R.id.phone, item.getMobilePhone());
+        helper.setText(R.id.address, item.getAddrArea() + item.getStreet());
         helper.addOnClickListener(R.id.choose_img);
         helper.addOnClickListener(R.id.address_edit_btn);
         helper.addOnClickListener(R.id.address_delete_btn);
+        if (item.isChoosed()) {
+            helper.setImageDrawable(R.id.choose_img,mContext.getResources().getDrawable( R.drawable.address_choosed_img));
+        } else {
+            helper.setImageDrawable(R.id.choose_img,mContext.getResources().getDrawable( R.drawable.address_unchoose_img));
+        }
     }
 }

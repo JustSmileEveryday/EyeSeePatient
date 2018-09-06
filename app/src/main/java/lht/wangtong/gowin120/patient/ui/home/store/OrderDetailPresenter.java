@@ -12,4 +12,9 @@ public class OrderDetailPresenter extends BasePresenter<OrderDetailContact.View>
     @Inject
     public OrderDetailPresenter() {
     }
+
+    @Override
+    public void initData() {
+
+    }
 }

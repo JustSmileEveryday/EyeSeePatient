@@ -21,8 +21,8 @@ public class ApplyReportPresenter extends BasePresenter<ApplyReportContact.View>
     }
 
     @Override
-    public void saveRadiographScreenReportApply(String name, String sex, String age, String mobilePhone, String agentName, String remark, String memberAddrId) {
-        if (checkData(name, sex, age, mobilePhone, agentName)) {
+    public void saveRadiographScreenReportApply(String name, String sex, String age, String mobilePhone, String agentName, String remark, boolean isNeed, String memberAddrId) {
+        if (checkData(name, sex, age, mobilePhone, agentName,isNeed,memberAddrId)) {
             HttpUtil.getObject(Api.saveRadiographScreenReportApply.mapClear()
                     .addMap("name", name)
                     .addMap("sex", sex)
@@ -43,7 +43,7 @@ public class ApplyReportPresenter extends BasePresenter<ApplyReportContact.View>
     }
 
     @Override
-    public boolean checkData(String name, String sex, String age, String mobilePhone, String agentName) {
+    public boolean checkData(String name, String sex, String age, String mobilePhone, String agentName,boolean isNeed, String memberAddrId) {
         if (TextUtils.isEmpty(name)) {
             RxToast.error("请输入姓名");
             return false;
@@ -63,6 +63,12 @@ public class ApplyReportPresenter extends BasePresenter<ApplyReportContact.View>
         if (TextUtils.isEmpty(agentName)) {
             RxToast.error("请输入筛查点");
             return false;
+        }
+        if (isNeed){
+            if (TextUtils.isEmpty(memberAddrId)){
+                RxToast.error("请选择收件地址");
+                return false;
+            }
         }
         return true;
     }

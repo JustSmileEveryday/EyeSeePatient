@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="lht.wangtong.gowin120.patient"
-    android:versionCode="23"
-    android:versionName="2.2.3">
+    android:versionCode="24"
+    android:versionName="2.2.4">
 
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -283,6 +283,12 @@
         <!-- 我的订单 -->
         <activity android:name=".ui.mine.order.OrderActivity" />
 
+        <!-- 订单详情 -->
+        <activity android:name=".ui.home.store.OrderDetailActivity" />
+
+        <!-- 产品详情 -->
+        <activity android:name=".ui.home.store.GoodsDetailActivity" />
+
         <!-- 图片裁剪 -->
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
@@ -381,12 +387,13 @@
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
             android:theme="@style/WBShareTheme"
-            tools:replace="android:theme"></activity>
+            tools:replace="android:theme" />
         <activity
             android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
+
         <activity
             android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
             android:launchMode="singleTask"

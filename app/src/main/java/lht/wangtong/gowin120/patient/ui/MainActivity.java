@@ -85,6 +85,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
     @Override
     protected void initView() {
+        mContext = this;
         EventBus.getDefault().register(this);
         mNavigation.setTextVisibility(true);
         mNavigation.setTextSize(13);

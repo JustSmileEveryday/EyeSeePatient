@@ -5,10 +5,12 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -38,6 +40,9 @@ public class MyAddressActivity extends BaseActivity<MyAddressPresenter> implemen
     RecyclerView addressListView;
     @Inject
     AddressAdapter addressAdapter;
+    @Autowired
+    String memberAddrId;
+    private boolean isDelete = false;
 
     @Override
     protected int getLayoutId() {
@@ -67,6 +72,9 @@ public class MyAddressActivity extends BaseActivity<MyAddressPresenter> implemen
                 if (addressInfo.isChoosed()) {
                     addressInfo.setChoosed(false);
                 } else {
+                    for (int i = 0; i < adapter.getData().size(); i++) {
+                        ((AddressInfo) adapter.getData().get(i)).setChoosed(false);
+                    }
                     addressInfo.setChoosed(true);
                     Intent data = new Intent();
                     data.putExtra("AddressInfo", addressInfo);
@@ -90,6 +98,9 @@ public class MyAddressActivity extends BaseActivity<MyAddressPresenter> implemen
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                                 mPresenter.deleteAddress(addressInfo.getAddrId());
+                                if (TextUtils.equals(memberAddrId, addressInfo.getAddrId())) {
+                                    isDelete = true;
+                                }
                                 dialog.dismiss();
                             }
                         })
@@ -110,15 +121,37 @@ public class MyAddressActivity extends BaseActivity<MyAddressPresenter> implemen
 
     }
 
-    @OnClick(R.id.add_btn)
-    public void onViewClicked() {
-        //新增地址
-        ARouter.getInstance().build("/mine/address/AddAddressActivity")
-                .navigation(this, ADD_PLAN);
+    @OnClick({R.id.add_btn, R.id.ordinary_titlebar_msg_img})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.add_btn:
+                //新增地址
+                ARouter.getInstance().build("/mine/address/AddAddressActivity")
+                        .navigation(this, ADD_PLAN);
+                break;
+            case R.id.ordinary_titlebar_msg_img:
+                //返回
+                if (isDelete){
+                    Intent data = new Intent();
+                    data.putExtra("AddressInfo", new AddressInfo());
+                    setResult(RESULT_OK, data);
+                }
+                finish();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
     public void setAddressList(List<AddressInfo> addressInfos) {
+        if (addressInfos.size() > 0) {
+            for (int i = 0; i < addressInfos.size(); i++) {
+                if (TextUtils.equals(memberAddrId, addressInfos.get(i).getAddrId())) {
+                    addressInfos.get(i).setChoosed(true);
+                }
+            }
+        }
         addressAdapter.setNewData(addressInfos);
     }
 

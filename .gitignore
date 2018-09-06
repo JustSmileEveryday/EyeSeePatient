@@ -7,3 +7,10 @@
 /build
 /captures
 .externalNativeBuild
+Would skip repository EyeSeePatient/
+app/src/main/res/drawable-xxxhdpi/
+app/src/main/res/layout-v21/
+app/src/main/res/styles/
+tencent/src/androidTest/
+tencent/src/main/jniLibs/
+tencent/src/test/

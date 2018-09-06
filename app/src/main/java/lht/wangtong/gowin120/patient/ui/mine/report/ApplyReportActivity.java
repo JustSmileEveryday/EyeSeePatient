@@ -15,8 +15,6 @@ import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.blankj.utilcode.util.KeyboardUtils;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,11 +99,12 @@ public class ApplyReportActivity extends BaseActivity<ApplyReportPresenter> impl
             case R.id.address_layout:
                 //地址
                 ARouter.getInstance().build("/mine/address/MyAddressActivity")
+                        .withString("memberAddrId", memberAddrId)
                         .navigation(this, ADDRESS);
                 break;
             case R.id.save_btn:
                 mPresenter.saveRadiographScreenReportApply(name.getText().toString().trim(), sexCode, age.getText().toString().trim(), phone.getText().toString().trim()
-                        , agentName.getText().toString().trim(), otherInfo.getText().toString().trim(), memberAddrId);
+                        , agentName.getText().toString().trim(), otherInfo.getText().toString().trim(), isShow, memberAddrId);
                 break;
             default:
                 break;
@@ -152,7 +151,11 @@ public class ApplyReportActivity extends BaseActivity<ApplyReportPresenter> impl
         if (requestCode == ADDRESS) {
             AddressInfo addressInfo = data.getParcelableExtra("AddressInfo");
             memberAddrId = addressInfo.getAddrId();
-            address.setText(addressInfo.getReceName() + "  " + addressInfo.getMobilePhone() + "  " + addressInfo.getAddrArea() + addressInfo.getStreet());
+            if (addressInfo.getAddrId() != null) {
+                address.setText(addressInfo.getReceName() + "  " + addressInfo.getMobilePhone() + "  " + addressInfo.getAddrArea() + addressInfo.getStreet());
+            }else {
+                address.setText("");
+            }
         }
     }
 

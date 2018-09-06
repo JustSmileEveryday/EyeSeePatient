@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,6 +16,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import java.io.File;
@@ -29,6 +34,8 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
  */
 public class ImageViewActivity extends Activity {
 
+    private PhotoView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +43,7 @@ public class ImageViewActivity extends Activity {
         setContentView(R.layout.activity_image_view);
         String file = getIntent().getStringExtra("filename");
         String imageUrl = getIntent().getStringExtra("reportImg");
-        PhotoView imageView = findViewById(R.id.photo_view);
+        imageView = findViewById(R.id.photo_view);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +64,12 @@ public class ImageViewActivity extends Activity {
                     .apply(new RequestOptions().error(R.drawable.report_detail_default_img)
                             .placeholder(R.drawable.report_detail_default_img))
                     .transition(withCrossFade())
-                    .into(imageView);
+                    .into(new SimpleTarget<Drawable>() {
+                        @Override
+                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                            imageView.setImageDrawable(resource);
+                        }
+                    });
         }
     }
 

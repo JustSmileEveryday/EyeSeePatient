@@ -4,7 +4,9 @@ import org.xutils.db.annotation.Column;
 import org.xutils.db.annotation.Table;
 
 /**
- * Created by sanmu on 2016/7/28 0028.
+ *
+ * @author sanmu
+ * @date 2016/7/28 0028
  */
 @Table(name = "versionInfo")
 public class VersionInfo {
@@ -88,4 +90,5 @@ public class VersionInfo {
     public void setVersionNumber(String versionNumber) {
         this.versionNumber = versionNumber;
     }
+
 }

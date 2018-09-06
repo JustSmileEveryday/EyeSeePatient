@@ -35,6 +35,7 @@ import lht.wangtong.gowin120.patient.bean.event.RecommendServiceEvent;
 import lht.wangtong.gowin120.patient.tencent.ui.ImageViewActivity;
 import lht.wangtong.gowin120.patient.view.ReportDetailItemTwoView;
 import lht.wangtong.gowin120.patient.view.ReportDetailItemView;
+import lht.wangtong.gowin120.patient.view.ReportPositiveItemView;
 import lht.wangtong.gowin120.patient.view.ShareDialog;
 
 /**
@@ -85,13 +86,15 @@ public class ReportDetailActivity extends BaseActivity<ReportDetailPresenter> im
     LinearLayout doctorReportLayout;
     @BindView(R.id.protect_eyes_advice_layout)
     LinearLayout protectEyesAdviceLayout;
+    @BindView(R.id.positive_result_array_layout)
+    LinearLayout positiveResultArrayLayout;
     @Inject
     ReportDetailAdapter reportAdapter;
     @Inject
     ServiceCategoryAdapter mServiceAdapter;
     @Autowired
     String mReportId;
-    private boolean mTotalIsOpen = false, mImportantIsOpen = false, mDetailIsOpen = false;
+    private boolean mTotalIsOpen = false, mImportantIsOpen = false, mDetailIsOpen = true;
     private ReportInfo mReportInfo;
     private ShareDialog mShareDialog;
     private UMWeb mWeb;
@@ -215,12 +218,12 @@ public class ReportDetailActivity extends BaseActivity<ReportDetailPresenter> im
                 setNoLeftAndRightCheck(reportDetailInfo.getNoLeftAndRightCheck().get(i));
             }
         }
-        if (reportDetailInfo.getPositiveResultText() != null && !TextUtils.isEmpty(reportDetailInfo.getPositiveResultText())) {
-            positiveResult.setText(reportDetailInfo.getPositiveResultText());
-            positiveResultLayout.setVisibility(View.VISIBLE);
-        } else {
-            positiveResultLayout.setVisibility(View.GONE);
-        }
+//        if (reportDetailInfo.getPositiveResultText() != null && !TextUtils.isEmpty(reportDetailInfo.getPositiveResultText())) {
+//            positiveResult.setText(reportDetailInfo.getPositiveResultText());
+//            positiveResultLayout.setVisibility(View.VISIBLE);
+//        } else {
+//            positiveResultLayout.setVisibility(View.GONE);
+//        }
         if (reportDetailInfo.getComprehensiveResultText() != null && !TextUtils.isEmpty(reportDetailInfo.getComprehensiveResultText())) {
             doctorReport.setText(reportDetailInfo.getComprehensiveResultText());
             doctorReportLayout.setVisibility(View.VISIBLE);
@@ -232,6 +235,14 @@ public class ReportDetailActivity extends BaseActivity<ReportDetailPresenter> im
             protectEyesAdviceLayout.setVisibility(View.VISIBLE);
         } else {
             protectEyesAdviceLayout.setVisibility(View.GONE);
+        }
+        if (reportDetailInfo.getPositiveResultArray() != null && reportDetailInfo.getPositiveResultArray().size() > 0) {
+            for (int i = 0; i < reportDetailInfo.getPositiveResultArray().size(); i++) {
+                setPositiveResultArray(reportDetailInfo.getPositiveResultArray().get(i));
+            }
+            positiveResultArrayLayout.setVisibility(View.VISIBLE);
+        } else {
+            positiveResultArrayLayout.setVisibility(View.GONE);
         }
         if (!TextUtils.isEmpty(reportDetailInfo.getComprehensiveReportPdfImgUrl())) {
             if (reportDetailInfo.getComprehensiveReportPdfImgUrl().contains(",")) {
@@ -274,6 +285,13 @@ public class ReportDetailActivity extends BaseActivity<ReportDetailPresenter> im
         ReportDetailItemTwoView reportDetailItemTwoView = new ReportDetailItemTwoView(this);
         reportDetailItemTwoView.setInfo(noLeftAndRightCheckBean.getName(), noLeftAndRightCheckBean.getValue());
         reportInfoLayout2.addView(reportDetailItemTwoView);
+    }
+
+
+    private void setPositiveResultArray(ReportInfo.PositiveResultArrayBean resultArrayBean) {
+        ReportPositiveItemView reportPositiveItemView = new ReportPositiveItemView(this);
+        reportPositiveItemView.setInfo(resultArrayBean.getName(), resultArrayBean.getValue());
+        positiveResultArrayLayout.addView(reportPositiveItemView);
     }
 
     @Override

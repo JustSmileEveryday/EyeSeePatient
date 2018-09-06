@@ -15,7 +15,9 @@ import lht.wangtong.gowin120.patient.R;
 
 
 /**
- * Created by sanmu on 2016/6/21 0021.
+ *
+ * @author luoyc
+ * @date 2018/6/21 0021
  * 常规titlebar
  * 默认是返回箭头
  */

@@ -91,6 +91,15 @@ public class ReportInfo {
     private List<NoLeftAndRightCheckBean> noLeftAndRightCheck;
     private String familyId;
     private String reportTemplateType;
+    private List<PositiveResultArrayBean> positiveResultArray;
+
+    public List<PositiveResultArrayBean> getPositiveResultArray() {
+        return positiveResultArray;
+    }
+
+    public void setPositiveResultArray(List<PositiveResultArrayBean> positiveResultArray) {
+        this.positiveResultArray = positiveResultArray;
+    }
 
     public String getReportTemplateType() {
         return reportTemplateType;
@@ -475,6 +484,27 @@ public class ReportInfo {
     }
 
     public static class NoLeftAndRightCheckBean {
+        private String name;
+        private String value;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+    }
+
+    public static class PositiveResultArrayBean {
         private String name;
         private String value;
 

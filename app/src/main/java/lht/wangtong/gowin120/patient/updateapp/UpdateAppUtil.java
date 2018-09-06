@@ -3,12 +3,18 @@ package lht.wangtong.gowin120.patient.updateapp;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.blankj.utilcode.util.AppUtils;
+
+import lht.wangtong.gowin120.patient.R;
 import lht.wangtong.gowin120.patient.config.Api;
 import lht.wangtong.gowin120.patient.db.VersionInfo;
 import lht.wangtong.gowin120.patient.net.http.HttpUtil;
-import lht.wangtong.gowin120.patient.view.PromptDialog;
 
 
 /**
@@ -62,18 +68,27 @@ public class UpdateAppUtil {
             public void callBack(final VersionInfo info) {
 
                 if (info != null && info.getVersionCode() != null) {
-
-                    if (Integer.valueOf(info.getVersionCode()) > getAPPLocalVersion(context)) {
-                        PromptDialog dialog = new PromptDialog(context, new PromptDialog.ICallback() {
-                            @Override
-                            public void callback() {
-                                DownloadAppUtils.downloadForAutoInstall(context, Api.HOST_IMG + info.getLoadPath(), "wesee_patient.apk", "更新小艾");
-                            }
-                        });
-                        dialog.setContent("发现新版本:小艾" + info.getVersionNumber() + "\n是否下载更新?");
-                        dialog.showCancleBtn(true);
-                        dialog.setCancelable(false);
-                        dialog.show();
+                    if (Integer.valueOf(info.getVersionCode()) > AppUtils.getAppVersionCode()) {
+                        new MaterialDialog.Builder(context)
+                                .title("发现新版本:")
+                                .content("小艾眼管家 V" + info.getVersionNumber() + "\n是否下载更新?")
+                                .positiveText(R.string.sure)
+                                .negativeText(R.string.cancel)
+                                .positiveColor(Color.parseColor("#01C1B4"))
+                                .negativeColor(Color.parseColor("#3C4045"))
+                                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                    @Override
+                                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                        DownloadAppUtils.downloadForAutoInstall(context, Api.HOST_IMG + info.getLoadPath(), "wesee_patient.apk", "更新小艾");
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                                    @Override
+                                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                        dialog.dismiss();
+                                    }
+                                }).show();
                     }
                 }
             }

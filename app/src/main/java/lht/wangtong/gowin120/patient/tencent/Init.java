@@ -4,12 +4,16 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.tencent.TIMConnListener;
 import com.tencent.TIMManager;
 import com.tencent.ilivesdk.ILiveCallBack;
 import com.tencent.ilivesdk.core.ILiveLoginManager;
 
+import cn.jpush.android.api.JPushInterface;
 import lht.wangtong.gowin120.patient.base.App;
+import lht.wangtong.gowin120.patient.db.Token;
+import lht.wangtong.gowin120.patient.db.User;
 import lht.wangtong.gowin120.patient.tencent.business.InitBusinessHelper;
 import lht.wangtong.gowin120.patient.util.ActivityCollector;
 import lht.wangtong.gowin120.patient.util.LoginUtil;
@@ -83,6 +87,16 @@ public class Init implements ILiveLoginManager.TILVBStatusListener {
     public void onForceOffline(int error, String message) {
         LoginUtil.user = null;
         ActivityCollector.finishAllActivity();
+        JPushInterface.setAlias(App.getAppContext(), 40, "");
+        User oldUser = SQLite.select().from(User.class).querySingle();
+        if (oldUser != null) {
+            oldUser.delete();
+        }
+        LoginUtil.user = null;
+        Token oldToken = SQLite.select().from(Token.class).querySingle();
+        if (oldToken != null) {
+            oldToken.delete();
+        }
         LoginUtil.loginRe();
         Toast.makeText(App.getAppContext(), "该账号在其他设备上登陆！", Toast.LENGTH_SHORT).show();
     }

@@ -434,7 +434,8 @@
                             android:text="收件地址："
                             android:textColor="#3c4045"
                             android:textSize="15sp"
-                            android:layout_gravity="center_vertical|left"/>
+                            android:layout_gravity="center_vertical|left"
+                            tools:ignore="RtlHardcoded" />
 
 
 

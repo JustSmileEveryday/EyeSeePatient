@@ -103,15 +103,17 @@ public class ServiceFragment extends BaseFragment<ServicePresenter> implements S
 
     @Override
     public void setCategorys(List<CommonCdInfo> categorys) {
-        String[] titles = new String[categorys.size()];
-        ArrayList<Fragment> fragments = new ArrayList<>();
-        for (int i = 0; i < categorys.size(); i++) {
-            titles[i] = categorys.get(i).getNameZh();
-            ServiceCategoryFragment fragment = ServiceCategoryFragment.newInstance();
-            fragment.setCode(categorys.get(i).getCode());
-            fragments.add(fragment);
+        if (categorys != null && categorys.size()>0) {
+            String[] titles = new String[categorys.size()];
+            ArrayList<Fragment> fragments = new ArrayList<>();
+            for (int i = 0; i < categorys.size(); i++) {
+                titles[i] = categorys.get(i).getNameZh();
+                ServiceCategoryFragment fragment = ServiceCategoryFragment.newInstance();
+                fragment.setCode(categorys.get(i).getCode());
+                fragments.add(fragment);
+            }
+            mTabLayout.setViewPager(mViewPager, titles, getActivity(), fragments);
         }
-        mTabLayout.setViewPager(mViewPager, titles, getActivity(), fragments);
     }
 
     @OnClick(R.id.search_btn)
@@ -125,7 +127,7 @@ public class ServiceFragment extends BaseFragment<ServicePresenter> implements S
     @Override
     public void showGuide() {
         NewbieGuide.with(getActivity())
-                .setLabel("service_guide_1"+ Constant.APPVERSION)
+                .setLabel("service_guide_1" + Constant.APPVERSION)
                 .addGuidePage(GuidePage.newInstance()
                         .addHighLight(mTabLayout, HighLight.Shape.RECTANGLE)
                         .setLayoutRes(R.layout.service_guide_layout_1, R.id.guide_next_btn)
@@ -138,7 +140,7 @@ public class ServiceFragment extends BaseFragment<ServicePresenter> implements S
                             }
                         }))
                 .addGuidePage(GuidePage.newInstance()
-                        .addHighLight(mItemLayout, HighLight.Shape.ROUND_RECTANGLE,20,0)
+                        .addHighLight(mItemLayout, HighLight.Shape.ROUND_RECTANGLE, 20, 0)
                         .setLayoutRes(R.layout.service_guide_layout_2, R.id.kown_btn)
                         .setEverywhereCancelable(false)
                         .setOnLayoutInflatedListener(new OnLayoutInflatedListener() {
