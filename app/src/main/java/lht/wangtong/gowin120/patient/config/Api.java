@@ -12,16 +12,16 @@ public class Api {
     /**
      *     正式环境
      */
-    private static final String HOST = "http://wappma.gowin120.com/";
-    public static final String HOST_IMG = "http://wappma.gowin120.com/img/";
-    public static final String HOST_IMG2 = "http://wappma.gowin120.com/img";
+//    private static final String HOST = "http://wappma.gowin120.com/";
+//    public static final String HOST_IMG = "http://wappma.gowin120.com/img/";
+//    public static final String HOST_IMG2 = "http://wappma.gowin120.com/img";
 
     /**
      * 测试环境
      */
-//    private static final String HOST = "http://192.168.10.18:8087/";
-//    public static final String HOST_IMG = "http://192.168.10.18:8087/img/";
-//    public static final String HOST_IMG2 = "http://192.168.10.18:8087/img";
+    private static final String HOST = "http://192.168.10.18:8087/";
+    public static final String HOST_IMG = "http://192.168.10.18:8087/img/";
+    public static final String HOST_IMG2 = "http://192.168.10.18:8087/img";
 
     //公共接口--------------------------------------------------------------------------
     // 数据字典

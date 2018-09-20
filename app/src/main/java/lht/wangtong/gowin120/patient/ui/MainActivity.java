@@ -98,6 +98,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         switchFragment(2);
         switchFragment(1);
         switchFragment(0);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         UpdateAppUtil.updateApp(mContext);
     }
 
